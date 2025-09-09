@@ -18,3 +18,6 @@
 - Refector code and create proper structured create component folder and move all components to this folder
 - You should not be access other routes without login
 - If the token is not present you should be redirect to login page
+- logout feature
+- get the feed and add the feed in the stroe
+- 
