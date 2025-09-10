@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../utils/constant'
 import { removeUser } from '../utils/userSlice'
+import EditProfile from './EditProfile'
 const NavBar = () => {
   const user = useSelector(store => store.user)
   const dispatch = useDispatch()
@@ -41,8 +42,8 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             <li>
-              <Link to="/">
-                Profile
+              <Link to="/profile">
+               Profile
               </Link>
             </li>
             <li><a>Settings</a></li>
