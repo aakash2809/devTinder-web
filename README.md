@@ -19,5 +19,7 @@
 - You should not be access other routes without login
 - If the token is not present you should be redirect to login page
 - logout feature
-- get the feed and add the feed in the stroe
-- 
+- get the feed and add the feed in the stroes
+- build the user card on the field
+- develop edit profile feature and add show toast feature
+- feature to view all connections
