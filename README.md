@@ -23,3 +23,4 @@
 - build the user card on the field
 - develop edit profile feature and add show toast feature
 - feature to view all connections
+- create a page of connection request
