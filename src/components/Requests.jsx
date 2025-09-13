@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRequests } from '../utils/requestSlice'
+import { addRequests, removeRequest } from '../utils/requestSlice'
 import axios from 'axios'
 import { BASE_URL } from '../utils/constant'
 
@@ -9,10 +9,17 @@ const Requests = () => {
     const requests = useSelector(state => state.requests);
     const dispatch = useDispatch()
 
+    const reviewRequests = async (status, _id) => {
+        try{
+            const res = await axios.post(BASE_URL + "/request/review/" + status + "/"+ _id,{},{withCredentials: true})
+            dispatch(removeRequest(_id))
+        }catch(err){
+
+        }
+    }
     const fetchRequests = async () => {
         try {
             const res = await axios.get(BASE_URL + '/user/requests/recieved', { withCredentials: true })
-            console.log(res.data.requests)
             dispatch(addRequests(res.data.requests))
         } catch (err) {
             console.error("Error fetching requests:", err);
@@ -25,7 +32,7 @@ const Requests = () => {
     }, []
     )
     if (!requests) return;
-    if (requests.length === 0) return (<h1>No Request found!</h1>)
+    if (requests.length === 0) return (<h1 className='flex justify-center font-bold text-xl my-10'>No Request found!</h1>)
     return (
         <div className=' text-center my-10 pb-10'>
             <h1 className='font-bold text-emerald-600 text-3xl'>Connestion Requests</h1>
@@ -43,8 +50,9 @@ const Requests = () => {
                             <p>{about}</p>
                         </div>
                         <div>
-                            <button className="btn btn-secondary mx-2">Reject</button>
-                            <button className="btn btn-primary mx-2">Accept</button>
+                            <button 
+                              className="btn btn-secondary mx-2"  onClick={()=>reviewRequests('rejected',req._id)}> Reject</button>
+                            <button className="btn btn-primary mx-2"onClick={() => reviewRequests('accepted',req._id)}>Accept</button>
                         </div>
                     </div>)
             })}

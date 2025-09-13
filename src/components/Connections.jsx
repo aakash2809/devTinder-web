@@ -22,9 +22,9 @@ const Connections = () => {
     }, []
     )
     if (!connectionData?.connections) return;
-    if (connectionData?.connections.length === 0) return (<h1>No connection found!</h1>)
+    if (connectionData?.connections.length === 0) return (<h1 className='flex justify-center font-bold text-xl my-10'>No connection found!</h1>)
     return (
-        <div className=' text-center my-10'>
+        <div className='text-center my-10'>
             <h1 className='font-bold text-emerald-600 text-3xl'>Connections </h1>
             {connectionData?.connections.map((conn) => {
 

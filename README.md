@@ -24,3 +24,4 @@
 - develop edit profile feature and add show toast feature
 - feature to view all connections
 - create a page of connection request
+- develop accept/reject feature
