@@ -5,12 +5,11 @@ import { addUser } from '../utils/userSlice';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 const EditProfile = ({ user }) => {
-    console.log("\\\\\\===>", user)
-    const [firstName, setFirstName] = useState(user.firstName);
+    const [firstName, setFirstName] = useState(user.firstName );
     const [lastName, setLastName] = useState(user.lastName);
-    const [age, setAge] = useState(user.age);
+    const [age, setAge] = useState(user.age || '');
     const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-    const [gender, setGender] = useState(user.gender);
+    const [gender, setGender] = useState(user.gender || '');
     const [about, setAbout] = useState(user.about);
     const [skills, setSkills] = useState(user.skills);
     const [showToast, setShowtoast] = useState(false)
@@ -31,7 +30,6 @@ const EditProfile = ({ user }) => {
                     gender
                 },
                 { withCredentials: true })
-            console.log('====>', res.data)
             dispatch(addUser(res.data))
             setShowtoast(true)
             setTimeout(()=>{
