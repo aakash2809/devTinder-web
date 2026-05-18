@@ -25,3 +25,24 @@
 - feature to view all connections
 - create a page of connection request
 - develop accept/reject feature
+
+# deployemenet
+- SignUp on AWS
+- Launch instance
+- chmod 400 <secret>.pem
+        chmod 400 "devTinder-secret.pem"
+- then connect with aws ec2 ubuntu system with ssh command
+- ssh -i "devTinder-secret.pem" ubuntu@ec2-67-202-53-125.compute-1.amazonaws.com
+- install node 
+- install v22.17.0 of node 
+- clone app from git to ubuntu (ec2 instance
+)
+- install dependence for front-end
+- build the procject using npm run build
+- sudo apt update
+- sudo apt install nginx
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+- sudo systemctl status nginx
+- sudo scp -r dist/* /var/www/html/
+- enable port 80 for your instance
